@@ -1,9 +1,0 @@
-{
-	"sounds": [
-		{
-			"name": "ding",
-			"file": "ding.mp3",
-			"aliases": [ "ping" ]
-		}
-	]
-}

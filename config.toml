@@ -1,0 +1,91 @@
+[[sounds]]
+name = "ban"
+aliases = []
+events = [ "ban" ]
+files = [ "ow/Soldier/Lights_out.wav" ]
+
+[[sounds]]
+name = "timeout"
+aliases = []
+events = [ "timeout" ]
+files = [ "ow/Mei/Hey_chill_out.ogg" ]
+
+################################################################################
+
+[[sounds]]
+name = "nani"
+aliases = []
+# permission = "sub"
+	[[sounds.files]]
+	name = "nani.mp3"
+	volume = 0.3
+
+[[sounds]]
+name = "ding"
+aliases = [ "ping" ]
+files = [ "ding.mp3" ]
+
+[[sounds]]
+name = "bbq"
+aliases = [ "bbqchicken", "bbqalert" ]
+files = [
+	"BBQChickenAlert_1_plus_2.mp3",
+	"ow/Junkrat/Anyone_want_some_BBQ.ogg"
+]
+
+[[sounds]]
+name = "mei"
+aliases = []
+files = [
+	"ow/Mei/Mei_checking_in.ogg",
+	"ow/Mei/A-Mei-Zing.mp3",
+	"ow/Mei/Mei_on_duty.ogg"
+]
+
+[[sounds]]
+name = "ok"
+aliases = [ "okay" ]
+files = [ "ow/Mei/Okay_1.mp3" ]
+
+[[sounds]]
+name = "letitgo"
+aliases = [ "youhavetoletitgo" ]
+files = [ "ow/Mei/You_have_to_let_it_go.ogg" ]
+
+[[sounds]]
+name = "soldier"
+aliases = []
+files = [ "ow/Soldier/Soldier76_reporting_for_duty.ogg" ]
+
+[[sounds]]
+name = "woohoo"
+aliases = [ "yay" ]
+files = [
+	"ow/Mei/Yay_1.mp3",
+	"ow/Mei/That_Was_Great.mp3",
+	"ow/Soldier/You_want_a_medal.ogg"
+]
+
+[[sounds]]
+name = "hi"
+aliases = [ "hello", "hai", "hey" ]
+files = [
+  "ow/Mei/Hi_1.mp3",
+  "ow/Mei/Hi_2.mp3",
+  "ow/Junkrat/Gday.ogg",
+  "ow/Junkrat/Gday_cobber.ogg",
+  "ow/Junkrat/Gday_mate.ogg",
+  "ow/Soldier/Hello.ogg",
+  "ow/Soldier/Hey.ogg",
+  "ow/Soldier/Hey2.wav"
+]
+
+[[sounds]]
+name = "bday"
+aliases = [ "birthday", "happybirthday", "feelsbirthdayman" ]
+files = [ "ow/Junkrat/Happy_birthday.ogg" ]
+
+[[sounds]]
+name = "colbert"
+aliases = [ "penis", "panis" ]
+files = [ "ColbertOfferPenis.mp3" ]
