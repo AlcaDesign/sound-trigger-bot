@@ -1,14 +1,11 @@
 const apiBase = location.origin;
-
-let state = {};
-
-// /**
-//  * @prop {Element} toggleTTS
-//  */
 const elements = {
 	/** @type {Element} */
 	toggleTTS: document.getElementById('toggle-tts')
 };
+const state = {};
+
+socket.on('state', updateState);
 
 elements.toggleTTS.addEventListener('click', () => {
 	ttsToggle();
@@ -17,12 +14,13 @@ elements.toggleTTS.addEventListener('click', () => {
 getState().then(updateState);
 
 function update() {
-	elements.toggleTTS.querySelector('span').textContent =
-		state.tts.enabled ? '✅' : '❌';
+	const { toggleTTS } = elements;
+	const { tts } = state;
+	toggleTTS.querySelector('span').textContent = tts.enabled ? '✅' : '❌';
 }
 
 function updateState(_state) {
-	state = _state;
+	Object.assign(state, _state);
 	update();
 }
 
@@ -42,6 +40,7 @@ function getState() {
 }
 
 function ttsToggle() {
-	return api({ endpoint: 'state/tts/toggle', method: 'post' })
-		.then(updateState);
+	socket.emit('toggle-tts');
+	// return api({ endpoint: 'state/tts/toggle', method: 'post' })
+	// 	.then(updateState);
 }

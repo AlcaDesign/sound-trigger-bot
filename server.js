@@ -27,6 +27,7 @@ app.get('/api/state', (req, res) => {
 app.post('/api/state/tts/toggle', (req, res) => {
 	state.tts.enabled = !state.tts.enabled;
 	res.json(state);
+	updateState();
 });
 
 app.use((req, res, next) => {
@@ -48,3 +49,14 @@ io.on('connection', socket => {
 
 events.on('sfx', (...args) => io.emit('sfx', ...args));
 events.on('tts', (...args) => io.emit('tts', ...args));
+
+function updateState() {
+	io.emit('state', state);
+}
+
+io.on('connect', socket => {
+	socket.on('toggle-tts', () => {
+		state.tts.enabled = !state.tts.enabled;
+		updateState();
+	});
+});
