@@ -2,13 +2,23 @@
 name = "ban"
 aliases = []
 events = [ "ban" ]
-files = [ "ow/Soldier/Lights_out.wav" ]
+files = [
+	"ow/Soldier/Lights_out.wav",
+	"ow/Soldier/Enemy_turret_destroyed.wav",
+	"ow/Soldier/And_stay_down.ogg",
+	"ow/Soldier/Dismissed.wav",
+	"ow/Soldier/You_wont_be_forgotten.wav",
+	"ow/Mei/Youre_just_no_good_bully.ogg"
+]
 
 [[sounds]]
 name = "timeout"
 aliases = []
 events = [ "timeout" ]
-files = [ "ow/Mei/Hey_chill_out.ogg" ]
+files = [
+	"ow/Mei/Hey_chill_out.ogg",
+	"ow/Mei/So_mean_honestly.ogg",
+]
 
 ################################################################################
 
@@ -30,7 +40,7 @@ name = "bbq"
 aliases = [ "bbqchicken", "bbqalert" ]
 files = [
 	"BBQChickenAlert_1_plus_2.mp3",
-	"ow/Junkrat/Anyone_want_some_BBQ.ogg"
+	"ow/Junkrat/Anyone_want_some_BBQ.ogg",
 ]
 
 [[sounds]]
@@ -39,7 +49,7 @@ aliases = []
 files = [
 	"ow/Mei/Mei_checking_in.ogg",
 	"ow/Mei/A-Mei-Zing.mp3",
-	"ow/Mei/Mei_on_duty.ogg"
+	"ow/Mei/Mei_on_duty.ogg",
 ]
 
 [[sounds]]
@@ -63,7 +73,7 @@ aliases = [ "yay" ]
 files = [
 	"ow/Mei/Yay_1.mp3",
 	"ow/Mei/That_Was_Great.mp3",
-	"ow/Soldier/You_want_a_medal.ogg"
+	"ow/Soldier/You_want_a_medal.ogg",
 ]
 
 [[sounds]]
@@ -77,7 +87,7 @@ files = [
   "ow/Junkrat/Gday_mate.ogg",
   "ow/Soldier/Hello.ogg",
   "ow/Soldier/Hey.ogg",
-  "ow/Soldier/Hey2.wav"
+  "ow/Soldier/Hey2.wav",
 ]
 
 [[sounds]]
@@ -89,3 +99,45 @@ files = [ "ow/Junkrat/Happy_birthday.ogg" ]
 name = "colbert"
 aliases = [ "penis", "panis" ]
 files = [ "ColbertOfferPenis.mp3" ]
+
+[[sounds]]
+name = "clap"
+aliases = []
+	[[sounds.files]]
+	name = "portal_slow_clap.mp3"
+	volume = 0.3
+
+[[sounds]]
+name = "freezer"
+aliases = []
+files = [
+	"shining/2-dozen-of-pork-roast.mp3",
+	"shining/12-turkeys.mp3",
+	"shining/15-rib-roasts.mp3",
+	"shining/20-legs-of-lamb.mp3",
+	"shining/30-10lb-bags-of-hamburger.mp3",
+	"shining/40-chickens.mp3",
+	"shining/50-sirloin-steaks.mp3",
+]
+
+[[sounds]]
+name = "pantry"
+aliases = []
+files = [ "shining/all-the-dry-goods-and-the-canned-goods.mp3" ]
+
+[[sounds]]
+name = "youdont"
+aliases = [ "nothanks" ]
+	[[sounds.files]]
+	name = "shining/you-dont.mp3"
+	volume = 2.5
+
+[[sounds]]
+name = "lamb"
+aliases = []
+files = [ "shining/you-like-lamb-doc.mp3" ]
+
+[[sounds]]
+name = "frenchfries"
+aliases = []
+files = [ "shining/french-fries-and-ketchup.mp3" ]
