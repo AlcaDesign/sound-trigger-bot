@@ -94,7 +94,7 @@ socket.on('tts', async ({ text }) => {
 		text
 	});
 	addToQueue(
-		{ location: chirp, volume: 0.6 },
+		{ location: chirp, volume: 0.4 },
 		await loadSoundNoCache(`${ttsBase}?${qs}`)
 	);
 });
