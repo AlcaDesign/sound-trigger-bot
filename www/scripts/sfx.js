@@ -8,7 +8,8 @@ const soundCache = new Map();
 const events = new EventEmitter();
 const queue = {
 	isPlaying: false,
-	list: []
+	list: [],
+	currentlyPlaying: null
 };
 
 const audioCtx = new AudioContext();
@@ -50,7 +51,16 @@ function playSound(audio) {
 		audioGain.gain.value = audio.volume || 1;
 		source.connect(audioGain);
 		source.start(audioCtx.currentTime);
-		source.onended = resolve;
+		source.onended = () => {
+			queue.currentlyPlaying = null;
+			resolve();
+		};
+		queue.currentlyPlaying = {
+			stop() {
+				source.stop();
+				resolve();
+			}
+		};
 	});
 }
 
@@ -121,4 +131,10 @@ socket.on('sfx', ({ command, soundEffect }) => {
 	const location = sfxBase + name;
 	const volume = isString ? 1 : file.volume || 1;
 	addToQueue({ location, volume });
+});
+
+socket.on('skip', () => {
+	if(queue.currentlyPlaying) {
+	queue.currentlyPlaying.stop();
+	}
 });

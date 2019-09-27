@@ -1,7 +1,8 @@
 const apiBase = location.origin;
 const elements = {
 	/** @type {Element} */
-	toggleTTS: document.getElementById('toggle-tts')
+	toggleTTS: document.getElementById('toggle-tts'),
+	skip: document.getElementById('skip'),
 };
 const state = {};
 
@@ -9,6 +10,10 @@ socket.on('state', updateState);
 
 elements.toggleTTS.addEventListener('click', () => {
 	ttsToggle();
+});
+
+elements.skip.addEventListener('click', () => {
+	socket.emit('skip');
 });
 
 getState().then(updateState);

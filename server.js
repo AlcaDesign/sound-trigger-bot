@@ -59,4 +59,5 @@ io.on('connect', socket => {
 		state.tts.enabled = !state.tts.enabled;
 		updateState();
 	});
+	socket.on('skip', () => io.emit('skip'));
 });
