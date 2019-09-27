@@ -3,7 +3,17 @@ const ttsBase = 'https://api.streamelements.com/kappa/v2/speech';
 
 const chirp = sfxBase + 'tng_chirp_clean.mp3';
 
+const voiceList = [ 'Zeina', 'Nicole', 'Russell', 'Ricardo', 'Vitoria', 'Emma',
+	'Brian', 'Amy', 'Chantal', 'Conchita', 'Enrique', 'Lucia', 'Zhiyu', 'Naja',
+	'Mads', 'Ruben', 'Lotte', 'Mathieu', 'Lea', 'Celine', 'Hans', 'Vicki',
+	'Marlene', 'Karl', 'Dora', 'Raveena', 'Aditi', 'Bianca', 'Carla', 'Giorgio',
+	'Takumi', 'Mizuki', 'Seoyeon', 'Mia', 'Liv', 'Jacek', 'Maja', 'Ewa', 'Jan',
+	'Ines', 'Cristiano', 'Carmen', 'Tatyana', 'Maxim', 'Astrid', 'Filiz',
+	'Matthew', 'Joanna', 'Salli', 'Kimberly', 'Ivy', 'Kendra', 'Joey', 'Justin',
+	'Miguel', 'Penelope', 'Gwyneth', 'Geraint' ];
+
 let soundsPlayed = [];
+/** @type {Map<string, AudioBuffer>} */
 const soundCache = new Map();
 const events = new EventEmitter();
 const queue = {
@@ -98,11 +108,11 @@ async function addToQueue(...items) {
 	playQueue();
 }
 
-socket.on('tts', async ({ text }) => {
-	const qs = new URLSearchParams({
-		voice: 'Zhiyu',
-		text
-	});
+socket.on('tts', async ({ text, voice: voiceInput = 'Zhiyu' }) => {
+	const voice = voiceInput === 'random' ?
+		voiceList[Math.floor(Math.random() * voiceList.length)] :
+		voiceInput;
+	const qs = new URLSearchParams({ voice, text });
 	addToQueue(
 		{ location: chirp, volume: 0.4 },
 		await loadSoundNoCache(`${ttsBase}?${qs}`)
@@ -135,6 +145,6 @@ socket.on('sfx', ({ command, soundEffect }) => {
 
 socket.on('skip', () => {
 	if(queue.currentlyPlaying) {
-	queue.currentlyPlaying.stop();
+		queue.currentlyPlaying.stop();
 	}
 });
