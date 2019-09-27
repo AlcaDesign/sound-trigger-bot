@@ -3,12 +3,19 @@
 <head>
 	<title>Sound Trigger Bot</title>
 	<script src="/socket.io/socket.io.js"></script>
+	<link rel="stylesheet" href="/styles/style.css" />
 </head>
 <body>
 
-<h1>Hello, World!</h1>
+<h1>Sound Trigger Bot</h1>
 
 <a href="/sfx" target="_blank">Click here to open the SFX page.</a>
+
+<h2>Control Panel</h2>
+
+<div id="buttons">
+	<div class="button" id="toggle-tts">Toggle TTS: <span>???</span></div>
+</div>
 
 <script src="scripts/socket.js"></script>
 <script src="scripts/index.js"></script>
